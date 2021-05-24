@@ -1,20 +1,18 @@
-public class Pelicula {
+import java.io.Serializable;
+
+public class Pelicula implements Serializable {
     private String titulo;
     private String duracion;
     private String sinopsis;
     private int precioAlquiler;
     private int precioCompra;
-    private String anyo;
-    private String director;
 
-    public Pelicula(String titulo, String duracion, String sinopsis, int precioAlquiler, int precioCompra, String anyo, String director) {
+    public Pelicula(String titulo, String duracion, String sinopsis, int precioAlquiler, int precioCompra) {
         this.titulo = titulo;
         this.duracion = duracion;
         this.sinopsis = sinopsis;
         this.precioAlquiler = precioAlquiler;
         this.precioCompra = precioCompra;
-        this.anyo = anyo;
-        this.director = director;
     }
 
     public String getTitulo() {
@@ -35,14 +33,6 @@ public class Pelicula {
 
     public int getPrecioCompra() {
         return precioCompra;
-    }
-
-    public String getAnyo() {
-        return anyo;
-    }
-
-    public String getDirector() {
-        return director;
     }
 
     public void setPrecioAlquiler(int precioAlquiler) {
