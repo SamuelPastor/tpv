@@ -6,5 +6,6 @@ public class Main {
         ventana.programa();
         ESPelicula.anyadirPeli();
         ESPelicula.leerPeli();
+
     }
 }

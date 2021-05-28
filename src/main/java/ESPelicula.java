@@ -1,11 +1,19 @@
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ESPelicula {
 
     public static void anyadirPeli() throws IOException {
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("pelculas.tpv"));
-        oos.writeObject(new Pelicula("es", "34", "rr...", 63, 134));
+        List<Pelicula> pelis = new ArrayList<>();
+        pelis.add(new Pelicula("es", "34", "rr.hbtg..", 63, 134));
+        pelis.add(new Pelicula("est", "34", "rr..hgd.", 63, 134));
+        pelis.add(new Pelicula("esg", "344", "rr..hgd.", 63, 134));
 
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("pelculas.tpv"));
+        for (Pelicula p : pelis) {
+            oos.writeObject(p);
+        }
         oos.close();
     }
 
@@ -19,6 +27,7 @@ public class ESPelicula {
                 if (aux instanceof Pelicula) {
                     System.out.println(aux);
                     aux = ois.readObject();
+                    //return (Pelicula) ois.readObject();
                 }
             }
             ois.close();
