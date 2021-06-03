@@ -24,7 +24,7 @@ public class ESPelicula {
         }
     }
 
-    private static Set<Pelicula> leerPeliculas() {
+    public static Set<Pelicula> leerPeliculas() {
         ObjectInputStream ois = null;
         try {
             ois = new ObjectInputStream(new FileInputStream("pelculas.tpv"));

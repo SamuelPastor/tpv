@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -7,13 +8,15 @@ public class Pelicula implements Serializable {
     private String sinopsis;
     private int precioAlquiler;
     private int precioCompra;
+    private ImageIcon imagen;
 
-    public Pelicula(String titulo, String duracion, String sinopsis, int precioAlquiler, int precioCompra) {
+    public Pelicula(String titulo, String duracion, String sinopsis, int precioAlquiler, int precioCompra, ImageIcon imagen) {
         this.titulo = titulo;
         this.duracion = duracion;
         this.sinopsis = sinopsis;
         this.precioAlquiler = precioAlquiler;
         this.precioCompra = precioCompra;
+        this.imagen = imagen;
     }
 
     public String getTitulo() {
@@ -34,6 +37,10 @@ public class Pelicula implements Serializable {
 
     public int getPrecioCompra() {
         return precioCompra;
+    }
+
+    public ImageIcon getImagen() {
+        return imagen;
     }
 
     public void setPrecioAlquiler(int precioAlquiler) {
