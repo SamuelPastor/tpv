@@ -4,20 +4,22 @@ import java.util.List;
 
 public class ESPelicula {
 
-    public static void anyadirPeli() throws IOException {
-        List<Pelicula> pelis = new ArrayList<>();
-        pelis.add(new Pelicula("es", "34", "rr.hbtg..", 63, 134));
-        pelis.add(new Pelicula("est", "34", "rr..hgd.", 63, 134));
-        pelis.add(new Pelicula("esg", "344", "rr..hgd.", 63, 134));
+    private static List<Pelicula> listaPeliculas = new ArrayList<>();
 
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("pelculas.tpv"));
-        for (Pelicula p : pelis) {
-            oos.writeObject(p);
+    public static void anyadirPelicula() {
+        try {
+            ObjectOutputStream oos;
+            oos = new ObjectOutputStream(new FileOutputStream("pelculas.tpv"));
+            for (Pelicula p : listaPeliculas) {
+                oos.writeObject(p);
+            }
+            oos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        oos.close();
     }
 
-    public static void leerPeli() {
+    public static List<Pelicula> leerPeliculas(List<Pelicula> lista) {
         ObjectInputStream ois = null;
         try {
             ois = new ObjectInputStream(new FileInputStream("pelculas.tpv"));
@@ -25,9 +27,9 @@ public class ESPelicula {
 
             while (aux != null) {
                 if (aux instanceof Pelicula) {
-                    System.out.println(aux);
+                    //System.out.println(aux);
+                    lista.add((Pelicula) aux);
                     aux = ois.readObject();
-                    //return (Pelicula) ois.readObject();
                 }
             }
             ois.close();
@@ -35,5 +37,6 @@ public class ESPelicula {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        return lista;
     }
 }
