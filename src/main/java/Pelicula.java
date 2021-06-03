@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Pelicula implements Serializable {
     private String titulo;
@@ -41,5 +42,19 @@ public class Pelicula implements Serializable {
 
     public void setPrecioCompra(int precioCompra) {
         this.precioCompra = precioCompra;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pelicula pelicula = (Pelicula) o;
+        return titulo.equals(pelicula.titulo) &&
+                sinopsis.equals(pelicula.sinopsis);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(titulo, sinopsis);
     }
 }

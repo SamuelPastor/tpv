@@ -7,10 +7,10 @@ import java.awt.event.ActionListener;
 public class PanelGeneros implements DocumentListener{
     private static JPanel panel;
     private static JButton[] botones;
-    JLabel label;
-    JTextField textField;
+    private static JLabel label;
+    private static JTextField textField;
 
-    public  JPanel panelgen() {
+    public JPanel panelgen() {
         //GridLayout layout = new GridLayout(0, 1);
         panel = new JPanel(new GridLayout(0, 1, 5 ,5));
         botones = new JButton[Generos.values().length];
@@ -21,13 +21,18 @@ public class PanelGeneros implements DocumentListener{
         panel.add(label);
         textField.getDocument().addDocumentListener(this);
 
+        for (int i = 0; i < botones.length; i++) {
+            botones[i] = new JButton(Generos.values()[i].getGenero());
+            panel.add(botones[i]);
+            botones[i].addActionListener(e -> accion());
+        }
 
-        for (Generos g : Generos.values()) {
+        /*for (Generos g : Generos.values()) {
             int contador = 0;
             botones[contador] = new JButton(g.getGenero());
             panel.add(botones[contador]);
             botones[contador++].addActionListener(e -> accion());
-        }
+        }*/
         return panel;
     }
 
@@ -38,6 +43,7 @@ public class PanelGeneros implements DocumentListener{
     @Override
     public void insertUpdate(DocumentEvent documentEvent) {
         label.setText(textField.getText());
+
     }
 
     @Override

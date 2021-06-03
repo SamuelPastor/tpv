@@ -1,25 +1,30 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ESPelicula {
 
-    private static List<Pelicula> listaPeliculas = new ArrayList<>();
+    private static Set<Pelicula> listaPeliculas = new HashSet<>();
 
-    public static void anyadirPelicula() {
+    public static void anyadirPelicula(Pelicula pelicula) {
+        leerPeliculas();
+        listaPeliculas.add(pelicula);
         try {
             ObjectOutputStream oos;
             oos = new ObjectOutputStream(new FileOutputStream("pelculas.tpv"));
             for (Pelicula p : listaPeliculas) {
                 oos.writeObject(p);
             }
+
             oos.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static List<Pelicula> leerPeliculas(List<Pelicula> lista) {
+    private static Set<Pelicula> leerPeliculas() {
         ObjectInputStream ois = null;
         try {
             ois = new ObjectInputStream(new FileInputStream("pelculas.tpv"));
@@ -28,7 +33,7 @@ public class ESPelicula {
             while (aux != null) {
                 if (aux instanceof Pelicula) {
                     //System.out.println(aux);
-                    lista.add((Pelicula) aux);
+                    listaPeliculas.add((Pelicula) aux);
                     aux = ois.readObject();
                 }
             }
@@ -37,6 +42,10 @@ public class ESPelicula {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return lista;
+        return listaPeliculas;
+    }
+
+    public static Set<Pelicula> getListaPeliculas() {
+        return listaPeliculas;
     }
 }
