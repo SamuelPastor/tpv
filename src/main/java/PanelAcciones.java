@@ -12,6 +12,7 @@ public class PanelAcciones {
     private static int precioAlquiler;
     private static int precioCompra;
     private static int coste = 0;
+
     public static JPanel panelAcciones() {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10,0,10,0);
@@ -47,11 +48,16 @@ public class PanelAcciones {
         panel.add(botonImprimir, gbc);
 
         JButton botonAñadirPeli = new JButton("Añadir Pelicula");
-        gbc.gridx = 1;
+        gbc.gridx = 0;
         gbc.gridy = 4;
         gbc.gridwidth = 1;
         gbc.insets.top = 180;
         panel.add(botonAñadirPeli, gbc);
+
+        JButton botonStats = new JButton("Estadisticas");
+        gbc.gridx = 1;
+        panel.add(botonStats, gbc);
+        botonStats.addActionListener(e-> {});
         botonAlquilar.addActionListener(e-> {
             if (titulo != null) {
                 Tiquets.actualizar();
