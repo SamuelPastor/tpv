@@ -32,7 +32,8 @@ public class PanelPeliculas {
         botonesPeliculas = new JButton[ESPelicula.getListaPeliculas().size()];
 
         for (Pelicula p : ESPelicula.getListaPeliculas()) {
-            Image imagen = p.getImagen().getImage().getScaledInstance(90, 122, Image.SCALE_SMOOTH);
+            ImageIcon im = new ImageIcon(p.getImagen());
+            Image imagen = im.getImage().getScaledInstance(90, 122, Image.SCALE_SMOOTH);
             ImageIcon imageIcon = new ImageIcon(imagen);
             botonesPeliculas[contador] = new JButton(imageIcon);
             botonesPeliculas[contador].setPreferredSize(new Dimension(90, 122));

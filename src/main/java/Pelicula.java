@@ -8,9 +8,9 @@ public class Pelicula implements Serializable {
     private int precioAlquiler;
     private Generos genero;
     private int precioCompra;
-    private ImageIcon imagen;
+    private String imagen;
 
-    public Pelicula(String titulo, String duracion, int precioAlquiler, int precioCompra, ImageIcon imagen, Generos genero) {
+    public Pelicula(String titulo, String duracion, int precioAlquiler, int precioCompra, String imagen, Generos genero) {
         this.titulo = titulo;
         this.duracion = duracion;
         this.precioAlquiler = precioAlquiler;
@@ -35,7 +35,7 @@ public class Pelicula implements Serializable {
         return precioCompra;
     }
 
-    public ImageIcon getImagen() {
+    public String getImagen() {
         return imagen;
     }
 

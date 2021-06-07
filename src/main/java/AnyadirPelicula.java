@@ -7,14 +7,14 @@ public class AnyadirPelicula {
     private static String duracion;
     private static int precioAlquiler;
     private static int precioCompra;
-    private static ImageIcon imagen;
+    private static String imagen;
     private static Generos genero;
 
     public static void nuevaPeli() {
         titulo = JOptionPane.showInputDialog("Título");
         duracion = JOptionPane.showInputDialog("Duración (En minutos)");
-        precioAlquiler = Integer.parseInt(JOptionPane.showInputDialog("Precia de alquiler"));
-        precioCompra = Integer.parseInt(JOptionPane.showInputDialog("Precia de compra"));
+        precioAlquiler = Integer.parseInt(JOptionPane.showInputDialog("Precio de alquiler"));
+        precioCompra = Integer.parseInt(JOptionPane.showInputDialog("Precio de compra"));
         imagen = seleccion();
         Object eleccion = JOptionPane.showInputDialog(null,
                 "Selecciona el genero",
@@ -30,13 +30,13 @@ public class AnyadirPelicula {
         PanelPeliculas.mostrarPeliculas();
     }
 
-    private static ImageIcon seleccion() {
+    public static String seleccion() {
 
-        JFileChooser fc = new JFileChooser();
+        JFileChooser fc = new JFileChooser("imagenes");
         fc.setDialogTitle("Portada");
         fc.showOpenDialog(null);
         ImageIcon fichero = new ImageIcon(fc.getSelectedFile().getAbsolutePath());
-
-        return fichero;
+        //System.out.println(fc.getSelectedFile().getPath());
+        return fc.getSelectedFile().getPath();
     }
 }
