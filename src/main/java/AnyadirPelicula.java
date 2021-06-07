@@ -12,7 +12,7 @@ public class AnyadirPelicula {
 
     public static void nuevaPeli() {
         titulo = JOptionPane.showInputDialog("Título");
-        duracion = JOptionPane.showInputDialog("Duración");
+        duracion = JOptionPane.showInputDialog("Duración (En minutos)");
         precioAlquiler = Integer.parseInt(JOptionPane.showInputDialog("Precia de alquiler"));
         precioCompra = Integer.parseInt(JOptionPane.showInputDialog("Precia de compra"));
         imagen = seleccion();
