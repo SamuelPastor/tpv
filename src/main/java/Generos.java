@@ -1,4 +1,5 @@
 public enum Generos {
+    TODOS("Todos"),
     ACCION("Acción"),
     TERROR("Terror"),
     COMEDIA("Comedia"),

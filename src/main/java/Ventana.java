@@ -2,11 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Ventana extends JFrame {
-    PanelGeneros panelGeneros = new PanelGeneros();
+    //PanelGeneros panelGeneros = new PanelGeneros();
 
     public void programa() {
         setLayout(new GridLayout(0, 3));
-        this.add(panelGeneros.panelgen(), BorderLayout.WEST);
+        this.add(PanelPeliculas.panelgeneros(), BorderLayout.WEST);
         this.add(PanelPeliculas.panelPelis(), BorderLayout.CENTER);
         this.add(PanelAcciones.panelAcciones());
         this.setTitle("VDCB");

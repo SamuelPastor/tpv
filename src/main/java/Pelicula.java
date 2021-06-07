@@ -5,18 +5,18 @@ import java.util.Objects;
 public class Pelicula implements Serializable {
     private String titulo;
     private String duracion;
-    private String sinopsis;
     private int precioAlquiler;
+    private Generos genero;
     private int precioCompra;
     private ImageIcon imagen;
 
-    public Pelicula(String titulo, String duracion, String sinopsis, int precioAlquiler, int precioCompra, ImageIcon imagen) {
+    public Pelicula(String titulo, String duracion, int precioAlquiler, int precioCompra, ImageIcon imagen, Generos genero) {
         this.titulo = titulo;
         this.duracion = duracion;
-        this.sinopsis = sinopsis;
         this.precioAlquiler = precioAlquiler;
         this.precioCompra = precioCompra;
         this.imagen = imagen;
+        this.genero = genero;
     }
 
     public String getTitulo() {
@@ -25,10 +25,6 @@ public class Pelicula implements Serializable {
 
     public String getDuracion() {
         return duracion;
-    }
-
-    public String getSinopsis() {
-        return sinopsis;
     }
 
     public int getPrecioAlquiler() {
@@ -51,17 +47,21 @@ public class Pelicula implements Serializable {
         this.precioCompra = precioCompra;
     }
 
+    public String getGenero() {
+        return genero.getGenero();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pelicula pelicula = (Pelicula) o;
         return titulo.equals(pelicula.titulo) &&
-                sinopsis.equals(pelicula.sinopsis);
+                duracion.equals(pelicula.duracion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(titulo, sinopsis);
+        return Objects.hash(titulo, duracion);
     }
 }

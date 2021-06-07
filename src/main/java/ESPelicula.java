@@ -17,7 +17,6 @@ public class ESPelicula {
             for (Pelicula p : listaPeliculas) {
                 oos.writeObject(p);
             }
-
             oos.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -25,6 +24,7 @@ public class ESPelicula {
     }
 
     public static Set<Pelicula> leerPeliculas() {
+        listaPeliculas.clear();
         ObjectInputStream ois = null;
         try {
             ois = new ObjectInputStream(new FileInputStream("pelculas.tpv"));
@@ -32,7 +32,6 @@ public class ESPelicula {
 
             while (aux != null) {
                 if (aux instanceof Pelicula) {
-                    //System.out.println(aux);
                     listaPeliculas.add((Pelicula) aux);
                     aux = ois.readObject();
                 }
