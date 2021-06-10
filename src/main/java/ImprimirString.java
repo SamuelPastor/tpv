@@ -1,11 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public class ImprimirString {
-    public static void main(String[] args) throws IOException {
-        imprimirTicket("Prueba de ticket");
-    }
     public static void imprimirTicket(String s){
         JTextPane jtp = new JTextPane();
         jtp.setBackground(Color.white);

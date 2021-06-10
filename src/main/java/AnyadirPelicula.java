@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.io.File;
+import java.io.IOException;
 
 public class AnyadirPelicula {
 
@@ -35,8 +36,6 @@ public class AnyadirPelicula {
         JFileChooser fc = new JFileChooser("imagenes");
         fc.setDialogTitle("Portada");
         fc.showOpenDialog(null);
-        ImageIcon fichero = new ImageIcon(fc.getSelectedFile().getAbsolutePath());
-        //System.out.println(fc.getSelectedFile().getPath());
-        return fc.getSelectedFile().getPath();
+        return "imagenes/" + fc.getSelectedFile().getName();
     }
 }

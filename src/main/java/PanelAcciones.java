@@ -54,10 +54,6 @@ public class PanelAcciones {
         gbc.insets.top = 180;
         panel.add(botonAñadirPeli, gbc);
 
-        JButton botonStats = new JButton("Estadisticas");
-        gbc.gridx = 1;
-        panel.add(botonStats, gbc);
-        botonStats.addActionListener(e-> {});
         botonAlquilar.addActionListener(e-> {
             if (titulo != null) {
                 Tiquets.actualizar();
